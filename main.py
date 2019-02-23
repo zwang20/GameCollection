@@ -4,6 +4,8 @@ import random
 import sys
 import math
 import time
+import re
+
 
 # init pygame
 pygame.init()
@@ -26,13 +28,35 @@ display_width = 1280
 display_height = 800
 display = pygame.display.set_mode([display_width, display_height])
 
+sounds = {}
+images = {}
+data = {}
+
 # Load Everything
 os.chdir('assets')
 directories = []
+current_directory = 0
 for file in os.listdir():
     if file[0] == '.':
         continue
     elif '.' not in file:
         directories.append(file)
-    else:
-        print(file)
+
+for directory in directories:
+    os.chdir(directory)
+    for file in os.listdir():
+        if file[0] == '.':
+            continue
+        else:
+            if '.wav' in file:
+                sounds[re.split(r'[_|.]', file)[0]] = pygame.mixer.Sound(file)
+            elif '.png' in file:
+                images[re.split(r'[_|.]', file)[0]] = pygame.image.load(file)
+            elif '.qgd' in file:
+                data[re.split(r'[_|.]', file)[0]] = open(file).read().split('\n')
+    current_directory += 1
+    os.chdir('..')
+
+
+
+raise KeyboardInterrupt

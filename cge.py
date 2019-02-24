@@ -116,6 +116,7 @@ class Button(GameObj):
         if self.x + self.width > mouse_pos[0] > self.x and self.y + self.height > mouse_pos[1] > self.y:
             self.image.fill(self.focus_colour)
             if pygame.event.peek(pygame.MOUSEBUTTONDOWN):
+                pygame.event.clear()
                 self.action()
                 # self.kill()
         else:
@@ -139,6 +140,12 @@ def get_input():
     if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
         pygame.quit()
         sys.exit()
+
+def game_quit():
+    GameObj.family.empty()
+    pygame.mixer.music.pause()
+    pygame.mixer.stop()
+    raise KeyboardInterrupt
 
 def useless_func():
     pass

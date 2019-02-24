@@ -1,3 +1,7 @@
+# Games Collection
+
+Collection by Michael Wang
+
 # CrazySpin
 
 pong game with crazy spin
@@ -6,3 +10,4 @@ pygame module is needed for this to work
 
 Game created by Edward Ji in early 2018
 Contributed also by Michael Wang
+Ported by Michael Wang

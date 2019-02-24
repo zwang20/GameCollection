@@ -550,6 +550,7 @@ def gameQuit():
     # pygame.mixer.stop()
     # pygame.quit()
     # quit()
+    pygame.mixer.music.pause()
     pygame.mixer.stop()
     raise KeyboardInterrupt
 

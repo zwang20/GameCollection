@@ -538,6 +538,7 @@ def gameLoop():
 # combo quit
 
 def gameQuit():
+    pygame.mixer.music.pause()
     pygame.mixer.stop()
     raise KeyboardInterrupt
 # def gameQuit():

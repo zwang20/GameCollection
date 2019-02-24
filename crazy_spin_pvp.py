@@ -42,11 +42,11 @@ def y_reflect(x): return 180 - x
 
 def text_objects(msg, color, size):
     if size == "small":
-        screen_text = smallFont.render(msg, True, color)
+        screen_text = SMALL_FONT.render(msg, True, color)
     elif size == "medium":
-        screen_text = medFont.render(msg, True, color)
+        screen_text = MEDUIUM_FONT.render(msg, True, color)
     elif size == "large":
-        screen_text = largeFont.render(msg, True, color)
+        screen_text = LARGE_FONT.render(msg, True, color)
     return screen_text, screen_text.get_rect()
 
 # display mmessage
@@ -546,10 +546,11 @@ def gameLoop():
 
 
 def gameQuit():
-    pygame.mixer.music.pause()
-    pygame.mixer.stop()
-    pygame.quit()
-    quit()
+    # pygame.mixer.music.pause()
+    # pygame.mixer.stop()
+    # pygame.quit()
+    # quit()
+    raise KeyboardInterrupt
 
 # game exception page
 

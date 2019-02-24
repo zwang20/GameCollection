@@ -220,7 +220,7 @@ def gameInit():
 
 def gameSettings():
     g = data['crazy_spin_data']
-    cdata = [int(line.replace('\n', '')) for line in g.split('\n')[:-1]]
+    cdata = [int(line.replace('\n', '')) for line in g.split('\n')[:6]]
     del g
     # check response
     while True:
@@ -307,16 +307,16 @@ def gamePause():
     while gamePaused:
         cursor = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        if 200 + 100 > cursor[0] > 200 and 380 + 50 > cursor[1] > 380:
-            pygame.draw.rect(DISPLAY, DARK_GREEN, [200, 380, 100, 50])
+        if WIDTH/2-50-200 + 100 > cursor[0] > WIDTH/2-50-200 and 2*HEIGHT/3-25 + 50 > cursor[1] > 2*HEIGHT/3-25: # WHAT IS THIS SH*T
+            pygame.draw.rect(DISPLAY, DARK_GREEN, [WIDTH/2-50-200, 2*HEIGHT/3-25, 100, 50])
             if click[0]:
+                pygame.mixer.music.unpause()
                 pygame.mouse.set_visible(False)
                 return
         else:
-            pygame.draw.rect(DISPLAY, GREEN, [200, 380, 100, 50])
-        buttonText("Continue", BLACK, [200, 380, 100, 50])
-        displayButton(
-            "Quit", [500, 380, 100, 50], RED, DARK_RED, action=gameQuit)
+            pygame.draw.rect(DISPLAY, GREEN, [WIDTH/2-50-200, 2*HEIGHT/3-25, 100, 50])
+        buttonText("Continue", BLACK, [WIDTH/2-50-200, 2*HEIGHT/3-25, 100, 50])
+        displayButton("Quit", [WIDTH/2-50+200, 2*HEIGHT/3-25, 100, 50], RED, DARK_RED, action=gameQuit)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -336,18 +336,18 @@ def gamePause():
 def gameOver(side):
     pygame.mixer.Sound.play(cheerSound)
     pygame.mouse.set_visible(True)
-    displayMsg("Game Over", GREEN, -150, "large")
-    displayMsg(side.title() + " won!", YELLOW, -50)
-    displayMsg("Do you want to play again with the computer?", YELLOW, -20)
+    displayMsg("Game Over", BLACK, -150, "large")
+    displayMsg(side.title() + " won!", BLACK, -50)
+    displayMsg("Do you want to play again with the computer?", BLACK, -20)
     # check response
     gameStart = False
     while not gameStart:
         # display bottons
         displayButton(
             "Rematch",
-            [250, 380, 100, 50], GREEN, DARK_GREEN, action=gameLoop)
+            [WIDTH/2-50-200, 2*HEIGHT/3-25, 100, 50], GREEN, DARK_GREEN, action=gameLoop)
         displayButton(
-            "Quit", [450, 380, 100, 50], RED, DARK_RED, action=gameQuit)
+            "Quit", [WIDTH/2-50+200, 2*HEIGHT/3-25, 100, 50], RED, DARK_RED, action=gameQuit)
         pygame.display.flip()
 
         for event in pygame.event.get():

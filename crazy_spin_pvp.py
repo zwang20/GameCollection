@@ -1,4 +1,4 @@
-from variables import *
+from cge import *
 
 pygame.display.set_caption("Crazy Spin Pvp")
 
@@ -550,6 +550,7 @@ def gameQuit():
     # pygame.mixer.stop()
     # pygame.quit()
     # quit()
+    pygame.mixer.stop()
     raise KeyboardInterrupt
 
 # game exception page

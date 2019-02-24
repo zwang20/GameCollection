@@ -1,4 +1,4 @@
-from variables import *
+from cge import *
 
 pygame.display.set_caption("Crazy Spin PvC")
 
@@ -205,14 +205,14 @@ def gameInit():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                break # gameQuit()
+                gameQuit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     gameLoop()
                 elif event.key == pygame.K_s:
                     gameSettings()
                 elif event.key == pygame.K_q:
-                    break # gameQuit()
+                    gameQuit()
         clock.tick(FPS)
 
 # game initiate window
@@ -275,13 +275,13 @@ def gameSettings():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 data['crazy_spin_data'] = ('\n'.join(map(str, cdata)))
-                break # gameQuit()
+                gameQuit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     gameLoop()
                 elif event.key == pygame.K_q:
                     data['crazy_spin_data'] = ('\n'.join(map(str, cdata)))
-                    break # gameQuit()
+                    gameQuit()
                 elif event.key == pygame.K_b:
                     cdata[4] = 0 if cdata[4] else 1
                 elif event.key == pygame.K_v:
@@ -320,10 +320,10 @@ def gamePause():
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                break # gameQuit()
+                gameQuit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                    break # gameQuit()
+                    gameQuit()
                 elif event.key == pygame.K_p:
                     pygame.mixer.music.unpause()
                     pygame.mouse.set_visible(False)
@@ -352,13 +352,13 @@ def gameOver(side):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                break # gameQuit()
+                gameQuit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     pygame.mixer.stop()
                     gameLoop()
                 elif event.key == pygame.K_q:
-                    break # gameQuit()
+                    gameQuit()
         clock.tick(FPS)
 
 # main loop of the game
@@ -538,8 +538,9 @@ def gameLoop():
 # combo quit
 
 def gameQuit():
+    pygame.mixer.stop()
     raise KeyboardInterrupt
-# def break # gameQuit():
+# def gameQuit():
 #     pygame.mixer.music.pause()
 #     pygame.mixer.stop()
 #     pygame.quit()
@@ -558,7 +559,7 @@ def gameExcept():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT or event.type == pygame.KEYDOWN:
-                break # gameQuit()
+                gameQuit()
         clock.tick(FPS)
 
 

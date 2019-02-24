@@ -43,7 +43,7 @@ USELESS_GREEN = (128, 255, 0); ORANGE = (255, 128, 0)
 TINY_FONT = pygame.font.SysFont("arial", 10)
 SMALL_FONT = pygame.font.SysFont("arial", 20)
 MEDUIUM_FONT = pygame.font.SysFont("arial", 40)
-largeFont = pygame.font.SysFont("arial", 80)
+LARGE_FONT = pygame.font.SysFont("arial", 80)
 
 # Load Everything
 os.chdir('assets')

@@ -25,7 +25,7 @@ ball_spin_effect = 1.1
 ball_spin_fade = 0.008
 edge_bounce_limit = 10
 win_condition = 10
-FPS = 45
+FPS = 60
 # ball reflection lambdas
 
 

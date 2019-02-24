@@ -1,14 +1,5 @@
 from cge import *
 
-# try:
-#     import crazy_spin_pvc
-#     try:
-#         del crazy_spin_pvc
-#     except NameError:
-#         pass
-# except KeyboardInterrupt:
-#     pass
-
 def main_menu():
 
     while True:

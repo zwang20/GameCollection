@@ -75,26 +75,3 @@ for file in os.listdir():
         sounds[file.split('.')[0]] = pygame.mixer.Sound(file)
 os.chdir('..')
 os.chdir('..')
-# directories = []
-# current_directory = 0
-# for file in os.listdir():
-#     if file[0] == '.':
-#         continue
-#     elif '.' not in file:
-#         directories.append(file)
-#
-# for directory in directories:
-#     os.chdir(directory)
-#     for file in os.listdir():
-#         if file[0] == '.':
-#             continue
-#         else:
-#             if '.wav' in file:
-#                 sounds[file.split('.')[0]] = pygame.mixer.Sound(file)
-#             elif '.png' in file:
-#                 images[file.split('.')[0]] = pygame.image.load(file)
-#             elif '.qgd' in file:
-#                 data[file.split('.')[0]] = open(file).read().split('\n')
-#     current_directory += 1
-#     os.chdir('..')
-# os.chdir('..')

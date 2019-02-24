@@ -186,21 +186,21 @@ def gameInit():
     while not gameStart:
         # display initiate window
         DISPLAY.blit(backgroundImg, [0, 0])
-        displayMsg("Pong PvC", GREEN, -170, "large")
+        displayMsg("Pong PvC", BLACK, -170, "large")
         displayMsg(
-            "Move the pads to bouce the ball and guard the goal", YELLOW, -70)
-        displayMsg("hit while moving you pad to add spin.", YELLOW, -40)
-        displayMsg("First one to 10 wins!", YELLOW, -10)
-        displayMsg("Player defualt - W and S", YELLOW, 20)
+            "Move the pads to bouce the ball and guard the goal", BLACK, -70)
+        displayMsg("hit while moving you pad to add spin.", BLACK, -40)
+        displayMsg("First one to 10 wins!", BLACK, -10)
+        displayMsg("Player defualt - W and S", BLACK, 20)
 
         # display bottons
         displayButton(
-            "Play", [150, 400, 100, 50], GREEN, DARK_GREEN, action=gameLoop)
+            "Play", [WIDTH/2-50-200, 2*HEIGHT/3-25, 100, 50], GREEN, DARK_GREEN, action=gameLoop)
         displayButton(
             "Settings",
-            [350, 400, 100, 50], YELLOW, DARK_YELLOW, action=gameSettings)
+            [WIDTH/2-50, 2*HEIGHT/3-25, 100, 50], YELLOW, DARK_YELLOW, action=gameSettings)
         displayButton(
-            "Quit", [550, 400, 100, 50], RED, DARK_RED, action=gameQuit)
+            "Quit", [WIDTH/2-50+200, 2*HEIGHT/3-25, 100, 50], RED, DARK_RED, action=gameQuit)
         pygame.display.flip()
 
         for event in pygame.event.get():
@@ -365,7 +365,7 @@ def gameOver(side):
 
 
 def gameLoop():
-    cdata = [int(line.replace('\n', '')) for line in data['crazy_spin_data'].split('\n')]
+    cdata = [int(line.replace('\n', '')) for line in data['crazy_spin_data'].split('\n')[:6]]
 
     # initiate using settings
     pygame.mouse.set_visible(False)

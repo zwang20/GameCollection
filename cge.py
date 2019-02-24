@@ -99,7 +99,6 @@ class Button(GameObj):
     def __init__(self, rect, text, text_size, unfocus_colour, focus_colour, text_colour, action):
         super().__init__()
         self.x, self.y, self.width, self.height = rect
-        print((self.x, self.y))
         self.image = pygame.Surface((self.width, self.height))
         self.text = str(text)
         self.text_size = text_size

@@ -1,4 +1,5 @@
 """
+cd directory
 py2app build script for MyApplication
 
 Usage:

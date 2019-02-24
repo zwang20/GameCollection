@@ -9,6 +9,6 @@ from setuptools import setup
 setup(
     app=["main.py"],
     options={'py2app': {'argv_emulation': True, 'packages': ['pygame']}},
-    data_files=['sge.py', 'crazy_spin_pvc.py', 'crazy_spin_pvp.py', 'Assets'],
+    data_files=['cge.py', 'crazy_spin_pvc.py', 'crazy_spin_pvp.py', 'Assets'],
     setup_requires=["py2app"]
 )

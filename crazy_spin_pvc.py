@@ -300,7 +300,7 @@ def gamePause():
 
     pygame.mouse.set_visible(True)
     displayMsg("Paused", RED, -100, "large")
-    displayMsg("Don't want to have fun with your mates?", BLACK, 25, "medium")
+    displayMsg("Don't want to have fun anymore?", BLACK, 25, "medium")
     pygame.display.flip()
     # wait for response
     gamePaused = True

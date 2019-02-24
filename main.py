@@ -54,4 +54,4 @@ def launch_crazy_spin_pvp():
 
 main_menu()
 
-raise KeyboardInterrupt
+sys.exit()

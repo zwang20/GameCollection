@@ -383,9 +383,23 @@ def ss_init():
         mouse_pos = pygame.mouse.get_pos()
         mouse_press = pygame.mouse.get_pressed()
 
-        while 600 < mouse_pos[0] < 800 and 250 < mouse_pos[1] < 350:
+        ss_game_help_2 = False
+        if 600 < mouse_pos[0] < 800 and 250 < mouse_pos[1] < 350:
+            sge_rect(x=600, y=250, width=200, height=100, colour=DARK_YELLOW)
+            sge_print(string='Help', x=600, y=250)
+            if mouse_press[0] == True:
+                ss_game_help_2 = True
+        while ss_game_help_2:
             mouse_pos = pygame.mouse.get_pos()
             DISPLAY.blit(init_img, (0, 0))
+            pygame.draw.rect(DISPLAY, DARK_GREEN, (WIDTH - 100, HEIGHT - 100 - 30, 100, 100))
+            sge_print(string='Back', x=WIDTH - 100, y=HEIGHT - 100 - 30)
+            mouse_press = pygame.mouse.get_pressed()
+            if WIDTH - 100 < mouse_pos[0] < WIDTH and HEIGHT - 100 - 30 < mouse_pos[1] < HEIGHT - 30:
+                pygame.draw.rect(DISPLAY, GREEN, (WIDTH - 100, HEIGHT - 100 - 30, 100, 100))
+                sge_print(string='Back', x=WIDTH - 100, y=HEIGHT - 100 - 30)
+                if mouse_press[0] == True:
+                    ss_game_help_2 = False
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:

@@ -12,8 +12,9 @@ def main_menu():
 
         Button((WIDTH/2 - 300, HEIGHT/2, 600, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvc)
         Button((WIDTH/2 - 300, HEIGHT/2 + 60, 600, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvp)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
+        Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
+        Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
+        Button((WIDTH/2 - 300, HEIGHT/2 + 240, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
 
         if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
             pygame.quit()
@@ -49,6 +50,16 @@ def launch_information():
         import information
         try:
             del information
+        except NameError:
+            pass
+    except KeyboardInterrupt:
+        pass
+
+def launch_simple_shooter():
+    try:
+        import simple_shooter
+        try:
+            del simple_shooter
         except NameError:
             pass
     except KeyboardInterrupt:

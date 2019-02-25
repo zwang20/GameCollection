@@ -2,19 +2,12 @@ from cge import *
 
 def main_menu():
 
+    refresh()
+
     while True:
         clock.tick(60)
-        DISPLAY.fill(WHITE)
-        text = HUGE_FONT.render(str('Games Collection'), True, BLACK)
-        DISPLAY.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
 
         get_input()
-
-        Button((WIDTH/2 - 300, HEIGHT/2, 600, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvc)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 60, 600, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvp)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
-        Button((WIDTH/2 - 300, HEIGHT/2 + 240, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
 
         if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
             pygame.quit()
@@ -25,6 +18,18 @@ def main_menu():
         pygame.display.update()  # update
         # This should be the last thing in the loop
 
+def refresh():
+    GameObj.family.empty()
+    DISPLAY.fill(WHITE)
+    text = HUGE_FONT.render(str('Games Collection'), True, BLACK)
+    DISPLAY.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
+    Button((WIDTH/2 - 300, HEIGHT/2, 600, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvc)
+    Button((WIDTH/2 - 300, HEIGHT/2 + 60, 600, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvp)
+    Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
+    Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
+    Button((WIDTH/2 - 300, HEIGHT/2 + 240, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
+
+
 def launch_crazy_spin_pvc():
     try:
         import crazy_spin_pvc
@@ -33,7 +38,7 @@ def launch_crazy_spin_pvc():
         except NameError:
             pass
     except KeyboardInterrupt:
-        pass
+        refresh()
 
 def launch_crazy_spin_pvp():
     try:
@@ -43,7 +48,7 @@ def launch_crazy_spin_pvp():
         except NameError:
             pass
     except KeyboardInterrupt:
-        pass
+        refresh()
 
 def launch_information():
     try:
@@ -53,7 +58,7 @@ def launch_information():
         except NameError:
             pass
     except KeyboardInterrupt:
-        pass
+        refresh()
 
 def launch_simple_shooter():
     try:
@@ -64,6 +69,7 @@ def launch_simple_shooter():
             pass
     except KeyboardInterrupt:
         pass
+    refresh()
 
 main_menu()
 

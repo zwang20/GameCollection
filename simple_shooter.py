@@ -24,6 +24,7 @@ explosion_img = images['explosion']
 shield_img = images['shield']
 shield_img = pygame.transform.scale(shield_img, (80, 80))
 init_img = images['ss_init']
+init_img = pygame.transform.scale(init_img, (WIDTH, HEIGHT))
 player_img = images['ss_robot']
 
 laser_sound_1 = sounds['sfx_laser1']
@@ -414,6 +415,9 @@ def ss_init():
             sge_print(
                 string='Made by Michael with assistance form Edward',
                 y=30, colour=WHITE)
+            sge_print(
+                string='To Quit Press Q',
+                y=60, colour=WHITE)
         player.display()
         player.aimove()
 

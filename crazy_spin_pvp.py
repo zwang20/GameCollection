@@ -190,8 +190,8 @@ def gameInit():
         displayMsg(
             "Move the pads to bouce the ball and guard the goal", BLACK, -70)
         displayMsg("hit while moving you pad to add spin.", BLACK, -40)
-        displayMsg("Player left defualt - W and S", BLACK, 20)
-        displayMsg("Player right default - QUOTE and SLASH", BLACK, 50)
+        displayMsg("Player left defualts - W and S", BLACK, 20)
+        displayMsg("Player right defaults - QUOTE and SLASH", BLACK, 50)
 
         # display bottons
         displayButton(

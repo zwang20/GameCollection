@@ -191,7 +191,7 @@ def gameInit():
             "Move the pads to bouce the ball and guard the goal", BLACK, -70)
         displayMsg("hit while moving you pad to add spin.", BLACK, -40)
         displayMsg("First one to 10 wins!", BLACK, -10)
-        displayMsg("Player defualt - W and S", BLACK, 20)
+        displayMsg("Player defualts - W and S", BLACK, 20)
 
         # display bottons
         displayButton(

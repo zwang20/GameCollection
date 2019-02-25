@@ -4,14 +4,15 @@ pygame.display.set_caption("Crazy Spin Pvp")
 
 pygame.display.set_icon(images['crazy_spin_icon'])
 
-backgroundMusic = music['background_music']
-
 backgroundImg = images['background_image']
 
 padBounceSound = sounds["pad_bounce"]
 edgeBounceSound = sounds['edge_bounce']
 cheerSound = sounds['cheer']
 whistleSound = sounds['whistle']
+
+pygame.mixer.music.stop()
+pygame.mixer.music.load(music['background_music.wav'])
 
 # game wide constants
 pad_length = int(HEIGHT / 6)  # 100

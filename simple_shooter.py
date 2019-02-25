@@ -11,7 +11,7 @@ DARK_BLUE = (0, 102, 255)
 GREY = (40, 40, 50)
 BLUE = (0, 0, 128)
 
-music = False
+MUSIC = False
 
 ground_height = 200
 
@@ -30,10 +30,12 @@ player_img = images['ss_robot']
 laser_sound_1 = sounds['sfx_laser1']
 laser_sound_2 = sounds['sfx_laser2']
 
-if music:
-    pygame.mixer.music.queue(music['song_1'])
-    pygame.mixer.music.queue(music['song_2'])
-    pygame.mixer.music.queue(music['song_3'])
+pygame.mixer.music.stop()
+
+if MUSIC:
+    pygame.mixer.music.load(music['song_1.ogg'])
+    pygame.mixer.music.queue(music['song_2.ogg'])
+    pygame.mixer.music.queue(music['song_3.ogg'])
     pygame.mixer.music.play(-1)
 
 

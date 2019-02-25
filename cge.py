@@ -69,7 +69,8 @@ for file in os.listdir():
     if file[0] == '.':
         continue
     elif '.wav' in file or '.ogg' in file:
-        music[file.split('.')[0]] = pygame.mixer.music.load(file)
+        # music[file.split('.')[0]] = pygame.mixer.music.load(file)
+        music[file] = os.path.abspath(file)
 os.chdir('..')
 os.chdir('sounds')
 for file in os.listdir():

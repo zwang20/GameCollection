@@ -108,8 +108,11 @@ class Button(GameObj):
         self.text_colour = text_colour
         self.action = action
         self.image.fill(self.unfocus_colour)
-        self.image.blit(text_size.render(text, True, text_colour), (0, 0))
         self.rect = self.image.get_rect()
+        self.text_render = text_size.render(text, True, text_colour)
+        self.text_rect = self.text_render.get_rect()
+        self.text_rect.center = self.width / 2, self.height / 2
+        self.image.blit(self.text_render, self.text_rect)
         self.rect.topleft = (self.x, self.y)
         Button.family.add(self)
 
@@ -122,7 +125,7 @@ class Button(GameObj):
                 # self.kill()
         else:
             self.image.fill(self.unfocus_colour)
-        self.image.blit(self.text_size.render(self.text, True, self.text_colour), (0, 0))
+        self.image.blit(self.text_render, self.text_rect)
 
 # functions
 

@@ -33,41 +33,44 @@ def refresh():
 def launch_crazy_spin_pvc():
     try:
         import crazy_spin_pvc
-        try:
-            del crazy_spin_pvc
-        except NameError:
-            pass
     except KeyboardInterrupt:
-        refresh()
+        pass
+    try:
+        del crazy_spin_pvc
+    except NameError:
+        pass
+    refresh()
 
 def launch_crazy_spin_pvp():
     try:
         import crazy_spin_pvp
-        try:
-            del crazy_spin_pvp
-        except NameError:
-            pass
     except KeyboardInterrupt:
-        refresh()
+        pass
+    try:
+        del crazy_spin_pvp
+    except NameError:
+        pass
+    refresh()
 
 def launch_information():
     try:
         import information
-        try:
-            del information
-        except NameError:
-            pass
     except KeyboardInterrupt:
-        refresh()
+        pass
+    try:
+        del information
+    except NameError:
+        pass
+    refresh()
 
 def launch_simple_shooter():
     try:
         import simple_shooter
-        try:
-            del simple_shooter
-        except NameError:
-            pass
     except KeyboardInterrupt:
+        pass
+    try:
+        del simple_shooter
+    except NameError:
         pass
     refresh()
 

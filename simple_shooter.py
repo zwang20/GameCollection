@@ -196,7 +196,7 @@ class Player:
         # gravity
         if self.y < HEIGHT - ground_height - Player.height:
             self.y += 1
-        # score above 0
+        # score below 0
         if Player.score < 0:
             Player.score = 0
 
@@ -444,12 +444,14 @@ def ss_init():
         pygame.display.update()
         timer += 1
 
+
 def ss_end():
     while True:
         if pygame.event.peek(pygame.QUIT):
             pygame.mixer.music.pause()
             pygame.mixer.stop()
             raise KeyboardInterrupt
+
 
 def ss_settings():
     pass
@@ -531,12 +533,8 @@ def ss():
                 rocket.display()
                 rocket.move()
 
-            sge_rect(
-                DISPLAY,
-                WIDTH-100, HEIGHT-10, 100, 10, WHITE)
-            sge_rect(
-                DISPLAY, WIDTH-100,
-                HEIGHT-10, player.cooldown, 10, RED)
+            sge_rect(DISPLAY, WIDTH-100, HEIGHT-10, 100, 10, WHITE)
+            sge_rect(DISPLAY, WIDTH-100, HEIGHT-10, player.cooldown, 10, RED)
             sge_print(DISPLAY, Player.score, colour=WHITE)
 
             sge_rect(DISPLAY, WIDTH-200, HEIGHT-10, 100, 10, WHITE)
@@ -544,10 +542,12 @@ def ss():
 
             pygame.display.update()
 
+
 def game_exit():
     pygame.mixer.music.pause()
     pygame.mixer.stop()
     raise KeyboardInterrupt
+
 
 while True:
     try:

@@ -30,6 +30,10 @@ def refresh():
     Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
     Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
     Button((WIDTH/2 - 300, HEIGHT/2 + 240, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
+    text = SMALL_FONT.render(str('Version 1.1.4'), True, BLACK)
+    DISPLAY.blit(text, (0, HEIGHT - 10 - text.get_height()/2))
+    pygame.display.set_caption("Games Collection")
+    pygame.display.set_icon(images['game_icon'])
 
 
 def launch_crazy_spin_pvc():

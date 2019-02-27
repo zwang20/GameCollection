@@ -18,8 +18,8 @@ while True:
 
     get_input()
 
-    print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
-    
+    # print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
+
     if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
         pygame.quit()
         sys.exit()

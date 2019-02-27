@@ -13,7 +13,7 @@ def main_menu():
             pygame.quit()
             sys.exit()
 
-        print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
+        # print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
 
         GameObj.family.update() # update sprites
         GameObj.family.draw(DISPLAY) # draw sprites

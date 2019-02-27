@@ -122,6 +122,7 @@ class Button(GameObj):
             if pygame.event.peek(pygame.MOUSEBUTTONDOWN):
                 pygame.event.clear(pygame.MOUSEBUTTONDOWN)
                 self.action()
+                print('action', self.action)
                 # self.kill()
         else:
             self.image.fill(self.unfocus_colour)

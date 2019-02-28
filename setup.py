@@ -7,7 +7,7 @@ Usage:
 """
 from setuptools import setup
 setup(
-    app=["main.py"],
+    app=["start.py"],
     options={'py2app': {'argv_emulation': True, 'packages': ['pygame']}},
     data_files=['assets'],
     setup_requires=["py2app"]

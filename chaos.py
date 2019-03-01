@@ -335,9 +335,9 @@ def main_menu():
         # play button
         play_button = pygame.Rect(0, 0, WIDTH/2, HEIGHT/10)
         play_button.center = (WIDTH/2, HEIGHT/2)
-        pygame.draw.rect(game_display, GREEN, play_button)
+        pygame.draw.rect(DISPLAY, GREEN, play_button)
         if play_button.left <= pygame.mouse.get_pos()[0] <= play_button.right and play_button.top <= pygame.mouse.get_pos()[1] <= play_button.bottom:
-            pygame.draw.rect(game_display, DARK_GREEN, play_button)
+            pygame.draw.rect(DISPLAY, DARK_GREEN, play_button)
             if pygame.mouse.get_pressed()[0]:
                 game()
         text = pygame.font.SysFont("arial", 30).render(str('Start Game'), True, BLACK)
@@ -486,7 +486,7 @@ def game():
 
         # Debug
         if DEBUG:
-            pygame.draw.line(game_display, BLACK, (player.rect.x+Player.width/2, player.rect.y +
+            pygame.draw.line(DISPLAY, BLACK, (player.rect.x+Player.width/2, player.rect.y +
                                                    player.height/2), (mouse_pos[0]+temp_spread_x, mouse_pos[1]+temp_spread_y), 2)
             cooldown = 0
             weapons[player.weapon]['ammo'] = 1

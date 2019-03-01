@@ -6,32 +6,18 @@ pygame.init()
 # set caption
 pygame.display.set_caption('Chaos')
 
-# set icon
-pygame.display.set_icon(
-    pygame.image.load(os.path.join('assets', '32x32_project_nont.png'))
-)
-
 # Load images
-rifle_img = pygame.image.load(os.path.join('Assets', 'guns', 'gun_rifle.png'))
-sniper_rifle_img = pygame.image.load(os.path.join('Assets', 'guns', 'gun_sniper.png'))
+rifle_img = images['gun_rifle']
+sniper_rifle_img = images['gun_sniper']
 
 # load sounds
-pistol_sound = pygame.mixer.Sound(os.path.join('assets', 'sounds', 'M1911.ogg'))
-rifle_sound = pygame.mixer.Sound(os.path.join('assets', 'sounds', 'M16.ogg'))
-reload_sound = pygame.mixer.Sound(os.path.join('assets', 'sounds', 'Reload.ogg'))
+pistol_sound = sounds['M1911']
+rifle_sound = sounds['M16']
+reload_sound = sounds['Reload']
 
 # sound channels
 CHANNELS = 100
 pygame.mixer.set_num_channels(CHANNELS)
-
-
-class GameObj(pygame.sprite.Sprite):
-
-    family = pygame.sprite.RenderUpdates()
-
-    def __init__(self):
-        super().__init__()
-        GameObj.family.add(self)
 
 
 class Block(GameObj):
@@ -342,9 +328,9 @@ def update():
 def main_menu():
     while True:
         clock.tick(60)
-        display.fill(WHITE)
+        DISPLAY.fill(WHITE)
         text = pygame.font.SysFont("arial", 100).render(str('Chaos'), True, BLACK)
-        display.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
+        DISPLAY.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
 
         # play button
         play_button = pygame.Rect(0, 0, WIDTH/2, HEIGHT/10)
@@ -355,7 +341,7 @@ def main_menu():
             if pygame.mouse.get_pressed()[0]:
                 game()
         text = pygame.font.SysFont("arial", 30).render(str('Start Game'), True, BLACK)
-        display.blit(text, (play_button.centerx - text.get_width() / 2, play_button.centery - text.get_height() / 2))
+        DISPLAY.blit(text, (play_button.centerx - text.get_width() / 2, play_button.centery - text.get_height() / 2))
 
         get_input()
         if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
@@ -417,7 +403,7 @@ def game():
     while True:
         # initilasion
         clock.tick(60)  # Frames per second
-        sge_clear(display)  # Clear
+        sge_clear(DISPLAY)  # Clear
 
         display_text = '  '.join([
             str(int(10*clock.get_fps())/10),
@@ -425,7 +411,7 @@ def game():
             ' '.join([str(weapons[player.weapon]['ammo']), '/', str(max_ammo)]),
             ' '.join(['Score:', str(player.score)])])
 
-        sge_print(display, display_text) # display text
+        sge_print(DISPLAY, display_text) # DISPLAY text
 
         # fire
         fire = False
@@ -476,9 +462,9 @@ def game():
         # Pause
         while pause:
             clock.tick(10)
-            sge_clear(display)
-            sge_print(display, 'Paused')
-            sge_print(display, 'To unpause press x', 1, 30)
+            sge_clear(DISPLAY)
+            sge_print(DISPLAY, 'Paused')
+            sge_print(DISPLAY, 'To unpause press x', 1, 30)
             keys = pygame.key.get_pressed()
             get_input()
             if keys[pygame.K_x]:
@@ -491,8 +477,8 @@ def game():
             fire = True
 
         # mouse
-        sge_rect(display, mouse_pos[0]-8, mouse_pos[1]-1, 16, 2, RED)
-        sge_rect(display, mouse_pos[0]-1, mouse_pos[1]-8, 2, 16, RED)
+        sge_rect(DISPLAY, mouse_pos[0]-8, mouse_pos[1]-1, 16, 2, RED)
+        sge_rect(DISPLAY, mouse_pos[0]-1, mouse_pos[1]-8, 2, 16, RED)
 
         # temperory mouse
         temp_spread_x = random.uniform(-spread, spread)
@@ -561,7 +547,7 @@ def game():
 
         # print(GameObj.family.sprites())
 
-        GameObj.family.draw(display) # draw sprites
+        GameObj.family.draw(DISPLAY) # draw sprites
 
         if channel > CHANNELS - 1:
             channel = 0

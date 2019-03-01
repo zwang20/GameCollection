@@ -35,6 +35,7 @@ def refresh():
     DISPLAY.blit(text, (0, HEIGHT - 10 - text.get_height()/2))
     pygame.display.set_caption("Games Collection")
     pygame.display.set_icon(images['game_icon'])
+    pygame.mouse.set_visible(False)
 
 
 def launch_crazy_spin_pvc():

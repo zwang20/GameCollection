@@ -20,6 +20,8 @@ reload_sound = sounds['Reload']
 CHANNELS = 100
 pygame.mixer.set_num_channels(CHANNELS)
 
+GameObj.family.empty()
+DISPLAY.fill(WHITE)
 
 class Block(GameObj):
 
@@ -320,6 +322,8 @@ def get_input():
     if pygame.event.peek(pygame.QUIT):
         pygame.quit()
         sys.exit()
+    if pygame.key.get_pressed()[pygame.K_q]:
+        raise KeyboardInterrupt
 
 
 def update():
@@ -350,7 +354,7 @@ def main_menu():
             sys.exit()
         if pygame.key.get_pressed()[pygame.K_q]:
             raise KeyboardInterrupt
-            
+
         pygame.display.update()  # update
         # This should be the last thing in the loop
 

@@ -1,4 +1,5 @@
 from cge import *
+from sge import *
 
 # init pygame
 pygame.init()
@@ -371,19 +372,19 @@ def game():
     2: {'name': 'Test 1', 'max_ammo': 50, 'cooldown_time': 5,  'burst': False, 'burst_count': 1, 'burst_time': 0, 'reload_time': 180, 'ammo' : 50, 'sound': rifle_sound }
     }
 
-    file = open(os.path.join('Assets', 'maps', 'map.map'), 'r')
-
-    # safety
-    SAFE_WORDS = ['Block']
-    UNSAFE_WORDS = ['quit', 'exit', 'open', '#', '"', "'"]
-    for line in file.readlines():
-        for word in SAFE_WORDS:
-            if word not in line:
-                raise KeyboardInterrupt
-        for word in UNSAFE_WORDS:
-            if word in line:
-                raise KeyboardInterrupt
-    exec(file.read())
+    # file = open(os.path.join('Assets', 'maps', 'map.map'), 'r')
+    #
+    # # safety
+    # SAFE_WORDS = ['Block']
+    # UNSAFE_WORDS = ['quit', 'exit', 'open', '#', '"', "'"]
+    # for line in file.readlines():
+    #     for word in SAFE_WORDS:
+    #         if word not in line:
+    #             raise KeyboardInterrupt
+    #     for word in UNSAFE_WORDS:
+    #         if word in line:
+    #             raise KeyboardInterrupt
+    # exec(file.read())
 
     # for line in file:
     #     eval(line) # This is extremely dangerous due to the ability to run code
@@ -403,7 +404,7 @@ def game():
     while True:
         # initilasion
         clock.tick(60)  # Frames per second
-        sge_clear(DISPLAY)  # Clear
+        DISPLAY.fill(WHITE)  # Clear
 
         display_text = '  '.join([
             str(int(10*clock.get_fps())/10),
@@ -462,7 +463,7 @@ def game():
         # Pause
         while pause:
             clock.tick(10)
-            sge_clear(DISPLAY)
+            DISPLAY.fill(WHITE)
             sge_print(DISPLAY, 'Paused')
             sge_print(DISPLAY, 'To unpause press x', 1, 30)
             keys = pygame.key.get_pressed()

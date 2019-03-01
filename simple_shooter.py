@@ -323,6 +323,9 @@ class Enemy:
                         Player.score += 20
                     elif self.difficulty == 'hell':
                         Player.score += 30
+                    player.health += 1
+                    if player.health > 100:
+                        player.health = 100
                 else:
                     DISPLAY.blit(shield_img, (self.x - 30, self.y - 20))
                     bullet.despawn()

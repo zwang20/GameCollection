@@ -70,10 +70,13 @@ def launch_information():
     refresh()
 
 def launch_simple_shooter():
-    try:
-        import simple_shooter
-    except KeyboardInterrupt:
-        pass
+    while True:
+        try:
+            import simple_shooter
+        except KeyboardInterrupt:
+            break
+        except AttributeError:
+            continue
     try:
         del simple_shooter
     except NameError:

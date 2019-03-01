@@ -556,5 +556,3 @@ while True:
         pygame.mixer.music.pause()
         pygame.mixer.stop()
         raise KeyboardInterrupt
-    except AttributeError:
-        continue

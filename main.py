@@ -83,6 +83,17 @@ def launch_simple_shooter():
         pass
     refresh()
 
+def launch_chaos():
+    try:
+        import chaos
+    except KeyboardInterrupt:
+        pass
+    try:
+        del chaos
+    except NameError:
+        pass
+    refresh()
+
 main_menu()
 
 sys.exit()

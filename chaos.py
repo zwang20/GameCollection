@@ -192,6 +192,8 @@ class Player(GameObj):
     health = 100
     score = 0
 
+    in_vehicle = False
+
     def __init__(self, x, y):
         super().__init__()
         self.x = x
@@ -333,6 +335,49 @@ def get_input():
         raise KeyboardInterrupt
 
 
+def input_handler(keys):
+    # global player
+
+    # reset
+    w = False
+    a = False
+    s = False
+    d = False
+
+    if keys[pygame.K_w] or keys[pygame.K_UP]:  # Up
+        w = True
+        player.move(0, -3)
+
+    if keys[pygame.K_d] or keys[pygame.K_RIGHT]:  # Right
+        d = True
+        player.move(3, 0)
+
+    if keys[pygame.K_a] or keys[pygame.K_LEFT]:  # Left
+        a = True
+        player.move(-3, 0)
+
+    if keys[pygame.K_s] or keys[pygame.K_DOWN]:  # Down
+        s = True
+        player.move(0, 3)
+
+    if player.in_vehicle == False:
+        if w:
+            player.move(0, -3)
+        if d:
+            player.move(3, 0)
+        if a:
+            player.move(-3, 0)
+        if s:
+            player.move(0, 3)
+
+    # reset
+    w = False
+    a = False
+    s = False
+    d = False
+
+
+
 def update():
     GameObj.family.update()
 
@@ -374,6 +419,7 @@ def game():
     # Debug
     DEBUG = False
 
+    global player
     player = Player(WIDTH/2, HEIGHT/2)
 
     # cooldown
@@ -444,24 +490,14 @@ def game():
 
         get_input()
 
+        input_handler(keys)
+
         if keys[pygame.K_q] and (keys[pygame.K_LMETA] or keys[pygame.K_RMETA]):  # Quit
             pygame.quit()
             sys.exit()
 
         if keys[pygame.K_e] and (keys[pygame.K_LMETA] or keys[pygame.K_RMETA]):  # Quit
             DEBUG = not DEBUG
-
-        if keys[pygame.K_w] or keys[pygame.K_UP]:  # Up
-            player.move(0, -3)
-
-        if keys[pygame.K_d] or keys[pygame.K_RIGHT]:  # Right
-            player.move(3, 0)
-
-        if keys[pygame.K_a] or keys[pygame.K_LEFT]:  # Left
-            player.move(-3, 0)
-
-        if keys[pygame.K_s] or keys[pygame.K_DOWN]:  # Down
-            player.move(0, 3)
 
         # change weapon
         if keys[pygame.K_1]:

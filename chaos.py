@@ -312,11 +312,14 @@ class PathBlockPlayer(pygame.sprite.Sprite):
         PathBlockPlayer.family.add(self)
         self.id = id
 
+
 class PathBlock(pygame.sprite.Sprite):
     pass
 
+
 class Vehicle(GameObj):
     pass
+
 
 def smart_spawn():
     Enemy(random.randint(1, WIDTH - Enemy.width - 1), random.randint(1, HEIGHT - Enemy.height - 1))

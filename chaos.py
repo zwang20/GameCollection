@@ -123,6 +123,12 @@ class Enemy(GameObj):
         if pygame.sprite.spritecollide(self, Player.family, False):
             Player.family.sprite.score -= 1
 
+        if pygame.sprite.spritecollide(self, Vehicle.family, False):
+            smart_spawn()
+            smart_spawn()
+            Player.family.sprite.score += 1
+            self.kill()
+
 
 class Bullet(GameObj):
 
@@ -192,7 +198,7 @@ class Player(GameObj):
     health = 100
     score = 0
 
-    in_vehicle = False
+    in_vehicle = True
 
     def __init__(self, x, y):
         super().__init__()
@@ -320,7 +326,42 @@ class PathBlock(pygame.sprite.Sprite):
 
 
 class Vehicle(GameObj):
-    pass
+
+    family = pygame.sprite.Group()
+
+    angle = 0
+
+    width = 20
+    height = 40
+
+    velocity = 3
+
+    def __init__(self, x, y):
+        super().__init__()
+        self.x = x
+        self.y = y
+        # self.velocity = velocity
+        # self.vector_x = velocity * math.sin(math.radians(self.angle))
+        # self.vector_y = velocity * -math.cos(math.radians(self.angle))
+        self.image_ori = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
+        self.image_ori.fill(PURPLE)
+        self.image = pygame.transform.rotate(self.image_ori, -self.angle)
+        self.rect = self.image.get_rect()
+        self.rect.center = (self.x, self.y)
+        Vehicle.family.add(self)
+
+    def move(self, direction, magnitute):
+        self.angle += direction
+        self.x += magnitute * self.velocity * -math.sin(math.radians(self.angle))
+        self.y += magnitute * self.velocity * math.cos(math.radians(self.angle))
+        self.rect.center = (self.x, self.y)
+
+    def update(self):
+        self.image = pygame.transform.rotate(self.image_ori, -self.angle)
+        self.rect = self.image.get_rect()
+        self.rect.center = (self.x, self.y)
+        player.rect.centerx = self.x
+        player.rect.centery = self.y
 
 
 def smart_spawn():
@@ -346,19 +387,15 @@ def input_handler(keys):
 
     if keys[pygame.K_w] or keys[pygame.K_UP]:  # Up
         w = True
-        player.move(0, -3)
 
     if keys[pygame.K_d] or keys[pygame.K_RIGHT]:  # Right
         d = True
-        player.move(3, 0)
 
     if keys[pygame.K_a] or keys[pygame.K_LEFT]:  # Left
         a = True
-        player.move(-3, 0)
 
     if keys[pygame.K_s] or keys[pygame.K_DOWN]:  # Down
         s = True
-        player.move(0, 3)
 
     if player.in_vehicle == False:
         if w:
@@ -369,6 +406,15 @@ def input_handler(keys):
             player.move(-3, 0)
         if s:
             player.move(0, 3)
+    else:
+        if w:
+            car.move(0, -3)
+        if d:
+            car.move(10, 0)
+        if a:
+            car.move(-10, 0)
+        if s:
+            car.move(0, 3)
 
     # reset
     w = False
@@ -421,6 +467,8 @@ def game():
 
     global player
     player = Player(WIDTH/2, HEIGHT/2)
+    global car
+    car = Vehicle(200, 200)
 
     # cooldown
     cooldown = 0

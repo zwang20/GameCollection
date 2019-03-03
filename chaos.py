@@ -353,8 +353,45 @@ class Vehicle(GameObj):
     def move(self, direction, magnitute):
         self.angle += direction
         self.x += magnitute * self.velocity * -math.sin(math.radians(self.angle))
+        self.rect = self.image.get_rect()
+
+        if self.x <= self.rect.width / 2:
+            self.x = self.rect.width / 2
+        if self.x >= WIDTH - self.rect.width / 2:
+            self.x = WIDTH - self.rect.width / 2
+
+        self.rect.centerx = self.x
+
+        # Did this update cause us to hit a wall?
+        for i in pygame.sprite.spritecollide(self, Block.family, False):
+            print(1)
+            # If we are moving right, set our right side to the left side of
+            # the item we hit
+            if magnitute * self.velocity * -math.sin(math.radians(self.angle)) > 0:
+                self.rect.right = i.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.rect.left = i.rect.right
+
+
         self.y += magnitute * self.velocity * math.cos(math.radians(self.angle))
-        self.rect.center = (self.x, self.y)
+
+        # Screen edge
+        if self.y <= self.rect.height / 2:
+            self.y = self.rect.height / 2
+        if self.y >= HEIGHT - self.rect.height / 2:
+            self.y = HEIGHT - self.rect.height / 2
+
+        self.rect.centery = self.y
+
+        # Did this update cause us to hit a wall?
+        for i in pygame.sprite.spritecollide(self, Block.family, False):
+             # Reset our position based on the top/bottom of the object.
+            if magnitute * self.velocity * math.cos(math.radians(self.angle)) > 0:
+                self.rect.bottom = i.rect.top
+            else:
+                self.rect.top = i.rect.bottom
+
 
     def update(self):
         self.image = pygame.transform.rotate(self.image_ori, -self.angle)

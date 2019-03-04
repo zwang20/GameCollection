@@ -512,9 +512,9 @@ def game():
 
     # weapons
     weapons = {
-    0: {'name': 'M1911',  'max_ammo': 7,  'cooldown_time': 10, 'burst': False, 'burst_count': 1, 'burst_time': 0, 'reload_time': 60 , 'ammo' : 7 , 'sound': pistol_sound},
-    1: {'name': 'M16'  ,  'max_ammo': 20, 'cooldown_time': 8,  'burst': True,  'burst_count': 2, 'burst_time': 2, 'reload_time': 180, 'ammo' : 20, 'sound': rifle_sound },
-    2: {'name': 'Test 1', 'max_ammo': 50, 'cooldown_time': 5,  'burst': False, 'burst_count': 1, 'burst_time': 0, 'reload_time': 180, 'ammo' : 50, 'sound': rifle_sound }
+    0: {'name': 'M1911', 'max_ammo': 7,  'cooldown_time': 10, 'burst': False, 'burst_count': 1, 'burst_time': 0, 'reload_time': 60 , 'ammo' : 7 , 'sound': pistol_sound},
+    1: {'name': 'M16'  , 'max_ammo': 20, 'cooldown_time': 8,  'burst': True,  'burst_count': 2, 'burst_time': 2, 'reload_time': 180, 'ammo' : 20, 'sound': rifle_sound },
+    2: {'name': 'M60'  , 'max_ammo': 50, 'cooldown_time': 5,  'burst': False, 'burst_count': 1, 'burst_time': 0, 'reload_time': 180, 'ammo' : 50, 'sound': rifle_sound }
     }
 
     # file = open(os.path.join('Assets', 'maps', 'map.map'), 'r')

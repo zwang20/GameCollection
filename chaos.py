@@ -198,7 +198,7 @@ class Player(GameObj):
     health = 100
     score = 0
 
-    in_vehicle = True
+    in_vehicle = False
 
     def __init__(self, x, y):
         super().__init__()
@@ -504,8 +504,8 @@ def game():
 
     global player
     player = Player(WIDTH/2, HEIGHT/2)
-    global car
-    car = Vehicle(200, 200)
+    # global car
+    # car = Vehicle(200, 200)
 
     # cooldown
     cooldown = 0
@@ -535,7 +535,7 @@ def game():
     #     eval(line) # This is extremely dangerous due to the ability to run code
 
 
-    Block(100, 100, 10, 600)
+    # Block(100, 100, 10, 600)
 
     # Main loop
     smart_spawn()

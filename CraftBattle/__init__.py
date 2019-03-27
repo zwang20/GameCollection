@@ -27,8 +27,8 @@ FPS = 40  # frames per sec
 FONT = pygame.font.Font(None, 32)
 BUTTON_FONT = pygame.font.Font(None, 45)
 
-craft_img = pygame.image.load(os.path.join(RES, "craft.png"))  # load -> pygame.Surface instance
-enemy_img = pygame.image.load(os.path.join(RES, "enemy.png"))
+craft_img = images['cb_craft']
+enemy_img = images['cb_enemy']
 
 
 class GameObj(pygame.sprite.Sprite):

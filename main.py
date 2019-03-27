@@ -52,75 +52,29 @@ def launch(name):
         exec(' '.join(['import', name]))
     except KeyboardInterrupt:
         pass
+    try:
+        del name
+    except NameError:
+        pass
+    refresh()
 
 def launch_crazy_spin_pvc():
-    try:
-        import crazy_spin_pvc
-    except KeyboardInterrupt:
-        pass
-    try:
-        del crazy_spin_pvc
-    except NameError:
-        pass
-    refresh()
+    launch('crazy_spin_pvc')
 
 def launch_crazy_spin_pvp():
-    try:
-        import crazy_spin_pvp
-    except KeyboardInterrupt:
-        pass
-    try:
-        del crazy_spin_pvp
-    except NameError:
-        pass
-    refresh()
+    launch('crazy_spin_pvp')
 
 def launch_information():
-    try:
-        import information
-    except KeyboardInterrupt:
-        pass
-    try:
-        del information
-    except NameError:
-        pass
-    refresh()
+    launch('information')
 
 def launch_simple_shooter():
-    while True:
-        try:
-            import simple_shooter
-        except KeyboardInterrupt:
-            break
-        except AttributeError:
-            continue
-    try:
-        del simple_shooter
-    except NameError:
-        pass
-    refresh()
+    launch('simple_shooter')
 
 def launch_chaos():
-    try:
-        import chaos
-    except KeyboardInterrupt:
-        pass
-    try:
-        del chaos
-    except NameError:
-        pass
-    refresh()
+    launch('chaos')
 
 def launch_craft_battle():
-    try:
-        import craft_battle
-    except KeyboardInterrupt:
-        pass
-    try:
-        del craft_battle
-    except NameError:
-        pass
-    refresh()
+    launch('craft_battle')
 
 main_menu()
 

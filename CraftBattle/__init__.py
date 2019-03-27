@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 import random
 import os
-from cge import HEIGHT, WIDTH
+from cge import *
 from cge import DISPLAY as display
 
 # constants

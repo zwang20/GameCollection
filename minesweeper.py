@@ -13,7 +13,7 @@ def main():
     while True:
         get_input()
 
-        
+
 
         GameObj.family.draw(DISPLAY) # draw sprites
         pygame.display.update()  # update

@@ -145,7 +145,7 @@ def get_input():
     mouse_pos = pygame.mouse.get_pos()
     keys = pygame.key.get_pressed()
     mouse = pygame.mouse.get_pressed()
-    if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
+    if (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
         pygame.quit()
         sys.exit()
 

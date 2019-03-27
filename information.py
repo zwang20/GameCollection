@@ -20,7 +20,7 @@ while True:
 
     # print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
 
-    if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
+    if (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
         pygame.quit()
         sys.exit()
     if pygame.key.get_pressed()[pygame.K_q]:

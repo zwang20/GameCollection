@@ -11,7 +11,7 @@ DISPLAY.blit(SMALL_FONT.render('\t Contributed by Michael Wang', True, BLACK), (
 DISPLAY.blit(SMALL_FONT.render('\t Ported to Games Collection by Michael Wang', True, BLACK), (0, 200))
 DISPLAY.blit(SMALL_FONT.render('\t Playtested by Josh Chen', True, BLACK), (0, 225))
 
-Button((WIDTH/2 - 300, HEIGHT/2 + 300, 600, 50), 'Back', SMALL_FONT, GREEN, DARK_GREEN, BLACK, game_quit
+Button((WIDTH/2 - 300, HEIGHT/2 + 300, 600, 50), 'Back', SMALL_FONT, GREEN, DARK_GREEN, BLACK, game_quit)
 
 while True:
     clock.tick(60)

@@ -5,9 +5,8 @@ def main_menu():
     refresh()
 
     while True:
+        # print(pygame.event.get())
         clock.tick(60)
-
-        get_input()
 
         if pygame.event.peek(pygame.QUIT) or (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
             pygame.quit()
@@ -15,6 +14,7 @@ def main_menu():
 
         # print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
 
+        get_input()
         GameObj.family.update() # update sprites
         GameObj.family.draw(DISPLAY) # draw sprites
         pygame.display.update()  # update
@@ -25,12 +25,12 @@ def refresh():
     DISPLAY.fill(WHITE)
     text = HUGE_FONT.render(str('Games Collection'), True, BLACK)
     DISPLAY.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
-    Button((WIDTH/2 - 300, HEIGHT/2, 600, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvc)
-    Button((WIDTH/2 - 300, HEIGHT/2 + 60, 600, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvp)
-    Button((WIDTH/2 - 300, HEIGHT/2 + 120, 600, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
-    Button((WIDTH/2 - 300, HEIGHT/2 + 180, 600, 50), 'Chaos', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_chaos)
-    Button((WIDTH/2 - 300, HEIGHT/2 + 240, 600, 50), 'Information', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_information)
-    Button((WIDTH/2 - 300, HEIGHT/2 + 300, 600, 50), 'Quit', SMALL_FONT, GREEN, DARK_GREEN, BLACK, sys.exit)
+    Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 120, 500, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvc)
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 120, 500, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_crazy_spin_pvp)
+    Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 60, 500, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 60, 500, 50), 'Chaos', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_chaos)
+    Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 300, 500, 50), 'Information', SMALL_FONT, YELLOW, DARK_YELLOW, BLACK, launch_information)
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 300, 500, 50), 'Quit', SMALL_FONT, RED, DARK_RED, BLACK, sys.exit)
     text = SMALL_FONT.render(str('Version 1.2.1'), True, BLACK)
     DISPLAY.blit(text, (0, HEIGHT - 10 - text.get_height()/2))
     pygame.display.set_caption("Games Collection")

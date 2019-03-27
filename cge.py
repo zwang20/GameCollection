@@ -120,10 +120,13 @@ class Button(GameObj):
         if self.x + self.width > mouse_pos[0] > self.x and self.y + self.height > mouse_pos[1] > self.y:
             self.image.fill(self.focus_colour)
             if pygame.event.peek(pygame.MOUSEBUTTONDOWN):
+            # pygame.event.get()
+            # if pygame.mouse.get_pressed()[0]:
                 pygame.event.clear(pygame.MOUSEBUTTONDOWN)
-                self.action()
+                pygame.event.clear()
                 print('action', self.action)
-                # self.kill()
+                self.action()
+                # pygame.event.post(pygame.event.Event(pygame.MOUSEBUTTONUP))
         else:
             self.image.fill(self.unfocus_colour)
         self.image.blit(self.text_render, self.text_rect)

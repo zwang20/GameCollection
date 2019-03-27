@@ -32,7 +32,7 @@ def refresh():
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 0, 500, 50), 'Craft Battle', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_craft_battle)
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 300, 500, 50), 'Information', SMALL_FONT, YELLOW, DARK_YELLOW, BLACK, launch_information)
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 300, 500, 50), 'Quit', SMALL_FONT, RED, DARK_RED, BLACK, sys.exit)
-    text = SMALL_FONT.render(str('Version 1.2.1'), True, BLACK)
+    text = SMALL_FONT.render(str('Version 1.2.2'), True, BLACK)
     DISPLAY.blit(text, (0, HEIGHT - 10 - text.get_height()/2))
     pygame.display.set_caption("Games Collection")
     pygame.display.set_icon(images['game_icon'])

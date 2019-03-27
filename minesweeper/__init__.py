@@ -14,7 +14,6 @@ def main():
         get_input()
 
 
-
         GameObj.family.draw(DISPLAY) # draw sprites
         pygame.display.update()  # update
         # This should be the last thing in the loop

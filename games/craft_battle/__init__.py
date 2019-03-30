@@ -2,8 +2,8 @@ import pygame
 from pygame.locals import *
 import random
 import os
-from cge import *
-from cge import DISPLAY as display
+from games.cge import *
+from games.cge import DISPLAY as display
 
 # constants
 WHITE = (255, 255, 255)

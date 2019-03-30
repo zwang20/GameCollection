@@ -9,6 +9,6 @@ from setuptools import setup
 setup(
     app=["start.py"],
     options={'py2app': {'argv_emulation': True, 'packages': ['pygame']}},
-    data_files=['assets'],
+    data_files=['assets', 'games'],
     setup_requires=["py2app"]
 )

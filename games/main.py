@@ -1,4 +1,4 @@
-from cge import *
+from games.cge import *
 
 def main_menu():
 
@@ -59,25 +59,25 @@ def launch(name):
     refresh()
 
 def launch_crazy_spin_pvc():
-    launch('crazy_spin_pvc')
+    launch('games.crazy_spin_pvc')
 
 def launch_crazy_spin_pvp():
-    launch('crazy_spin_pvp')
+    launch('games.crazy_spin_pvp')
 
 def launch_information():
-    launch('information')
+    launch('games.information')
 
 def launch_simple_shooter():
-    launch('simple_shooter')
+    launch('games.simple_shooter')
 
 def launch_chaos():
-    launch('chaos')
+    launch('games.chaos')
 
 def launch_craft_battle():
-    launch('craft_battle')
+    launch('games.craft_battle')
 
 def launch_snake():
-    launch('snake')
+    launch('games.snake')
 
 main_menu()
 

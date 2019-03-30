@@ -1,6 +1,6 @@
-from cge import *
+from games.cge import *
 
-pygame.display.set_caption("Crazy Spin PvC")
+pygame.display.set_caption("Crazy Spin Pvp")
 
 pygame.display.set_icon(images['crazy_spin_icon'])
 
@@ -36,7 +36,7 @@ def x_reflect(x): return 360 - x
 def y_reflect(x): return 180 - x
 
 
-def dumb(): return random.randint(1, 10) == 1
+# def dumb(): return random.randint(1, 10) == 1
 
 # create text objects
 
@@ -187,12 +187,12 @@ def gameInit():
     while not gameStart:
         # display initiate window
         DISPLAY.blit(backgroundImg, [0, 0])
-        displayMsg("Pong PvC", BLACK, -170, "large")
+        displayMsg("Pong PvP", BLACK, -170, "large")
         displayMsg(
             "Move the pads to bouce the ball and guard the goal", BLACK, -70)
         displayMsg("hit while moving you pad to add spin.", BLACK, -40)
-        displayMsg("First one to 10 wins!", BLACK, -10)
-        displayMsg("Player defualts - W and S", BLACK, 20)
+        displayMsg("Player left defualts - W and S", BLACK, 20)
+        displayMsg("Player right defaults - QUOTE and SLASH", BLACK, 50)
 
         # display bottons
         displayButton(
@@ -245,14 +245,22 @@ def gameSettings():
 
         # display key set settings
         cursor_x, cursor_y = pygame.mouse.get_pos()
-        if cursor_y <= HEIGHT/2:
-            setKeyName = "Pad moves Up"
-            setKeyNo = 0
+        if cursor_x <= WIDTH/2:
+            if cursor_y <= HEIGHT/2:
+                setKeyName = "Left Pad Up"
+                setKeyNo = 0
+            else:
+                setKeyName = "Left Pad Down"
+                setKeyNo = 1
         else:
-            setKeyName = "Pad moves Down"
-            setKeyNo = 1
+            if cursor_y <= HEIGHT/2:
+                setKeyName = "Right Pad Up"
+                setKeyNo = 2
+            else:
+                setKeyName = "Right Pad Down"
+                setKeyNo = 3
         displayMsg(
-            "Move the cursor to upper or lower side to change key.", DARK_YELLOW, 10)
+            "Move the cursor to quarters to change the pad or direction of key.", DARK_YELLOW, 10)
         displayMsg("You can not use key that are pre-defined!", DARK_YELLOW, 40)
         displayMsg("Set Key for: " + setKeyName, DARK_YELLOW, 70)
         displayMsg(
@@ -301,7 +309,7 @@ def gamePause():
 
     pygame.mouse.set_visible(True)
     displayMsg("Paused", RED, -100, "large")
-    displayMsg("Don't want to have fun anymore?", BLACK, 25, "medium")
+    displayMsg("Don't want to have fun with your mates?", BLACK, 25, "medium")
     pygame.display.flip()
     # wait for response
     gamePaused = True
@@ -339,7 +347,7 @@ def gameOver(side):
     pygame.mouse.set_visible(True)
     displayMsg("Game Over", BLACK, -150, "large")
     displayMsg(side.title() + " won!", BLACK, -50)
-    displayMsg("Do you want to play again with the computer?", BLACK, -20)
+    displayMsg("Do you want to play again with your mate?", BLACK, -20)
     # check response
     gameStart = False
     while not gameStart:
@@ -410,6 +418,10 @@ def gameLoop():
                     leftPadMove -= pad_speed
                 elif event.key == leftPadDown:
                     leftPadMove += pad_speed
+                elif event.key == rightPadUp:
+                    rightPadMove -= pad_speed
+                elif event.key == rightPadDown:
+                    rightPadMove += pad_speed
                 elif event.key == pygame.K_p:
                     gamePause()
             elif event.type == pygame.KEYUP:
@@ -417,15 +429,10 @@ def gameLoop():
                     leftPadMove += pad_speed
                 elif event.key == leftPadDown:
                     leftPadMove -= pad_speed
-
-        # computer intelligence
-        if not dumb():
-            if ballY - ball_size <= rightPadY:
-                rightPadMove = -pad_speed
-            elif ballY >= rightPadY + pad_length:
-                rightPadMove = pad_speed
-            else:
-                rightPadMove = 0
+                elif event.key == rightPadUp:
+                    rightPadMove += pad_speed
+                elif event.key == rightPadDown:
+                    rightPadMove -= pad_speed
 
         # ball right and left edge and pad bounce
         if ballX <= pad_width:
@@ -526,27 +533,27 @@ def gameLoop():
 
         # win condition check
         if leftScore >= win_condition:
-            gameOver("player")
+            gameOver("left hand side")
         elif rightScore >= win_condition:
-            gameOver("computer")
+            gameOver("right hand side")
 
         # frames per second
         clock.tick(FPS)
 
     # out of loop quit game
-    pass # gameQuit()
+    gameQuit()
 
 # combo quit
 
+
 def gameQuit():
+    # pygame.mixer.music.pause()
+    # pygame.mixer.stop()
+    # pygame.quit()
+    # quit()
     pygame.mixer.music.pause()
     pygame.mixer.stop()
     raise KeyboardInterrupt
-# def gameQuit():
-#     pygame.mixer.music.pause()
-#     pygame.mixer.stop()
-#     pygame.quit()
-#     quit()
 
 # game exception page
 

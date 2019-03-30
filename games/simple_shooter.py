@@ -1,5 +1,5 @@
-from cge import *
-from sge import *
+from games.cge import *
+from games.sge import *
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)

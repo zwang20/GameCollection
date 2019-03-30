@@ -1,4 +1,4 @@
-from cge import *
+from games.cge import *
 
 pygame.display.set_caption('Snake')
 
@@ -10,7 +10,7 @@ class Cell(GameObj):
 
     WIDTH = 10
     HEIGHT = 10
-    
+
     def __init__(self, x, y):
         pass
 

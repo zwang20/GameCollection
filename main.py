@@ -30,7 +30,7 @@ def refresh():
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 60, 500, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_simple_shooter)
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 60, 500, 50), 'Chaos', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_chaos)
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 0, 500, 50), 'Craft Battle', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_craft_battle)
-    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 0, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, useless_func)
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 0, 500, 50), 'Snake', SMALL_FONT, GREEN, DARK_GREEN, BLACK, launch_snake)
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 60, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, useless_func)
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 60, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, useless_func)
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 120, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, useless_func)
@@ -75,6 +75,9 @@ def launch_chaos():
 
 def launch_craft_battle():
     launch('craft_battle')
+
+def launch_snake():
+    launch('snake')
 
 main_menu()
 

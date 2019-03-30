@@ -1,4 +1,4 @@
-from games.cge import *
+from cge import *
 
 if __name__ != "__main__":
     print('Simple Game Engine by Michael imported!')

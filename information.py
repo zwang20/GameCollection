@@ -1,4 +1,4 @@
-from games.cge import *
+from cge import *
 
 GameObj.family.empty()
 

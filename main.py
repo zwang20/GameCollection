@@ -1,4 +1,4 @@
-from games.cge import *
+from cge import *
 
 def main_menu():
 
@@ -52,6 +52,8 @@ def launch(name):
         exec(' '.join(['import', name]))
     except KeyboardInterrupt:
         pass
+    except ModuleNotFoundError:
+        pass
     try:
         del name
     except NameError:
@@ -59,25 +61,25 @@ def launch(name):
     refresh()
 
 def launch_crazy_spin_pvc():
-    launch('games.crazy_spin_pvc')
+    launch('crazy_spin_pvc')
 
 def launch_crazy_spin_pvp():
-    launch('games.crazy_spin_pvp')
+    launch('crazy_spin_pvp')
 
 def launch_information():
-    launch('games.information')
+    launch('information')
 
 def launch_simple_shooter():
-    launch('games.simple_shooter')
+    launch('simple_shooter')
 
 def launch_chaos():
-    launch('games.chaos')
+    launch('chaos')
 
 def launch_craft_battle():
-    launch('games.craft_battle')
+    launch('craft_battle')
 
 def launch_snake():
-    launch('games.snake')
+    launch('snake')
 
 main_menu()
 

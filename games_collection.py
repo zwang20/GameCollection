@@ -1,1 +1,1 @@
-import games.main
+import main

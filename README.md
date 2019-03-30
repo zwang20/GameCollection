@@ -2,7 +2,6 @@
 
 Collection by Michael Wang
 
-
 # CrazySpin
 
 pong game with crazy spin

@@ -136,6 +136,17 @@ mouse_pos = pygame.mouse.get_pos()
 keys = pygame.key.get_pressed()
 mouse = pygame.mouse.get_pressed()
 
+def launch(name):
+    try:
+        __import__(name)
+    except KeyboardInterrupt:
+        pass
+    try:
+        del name
+    except NameError:
+        pass
+    refresh()
+    
 # get input
 def get_input():
     global mouse_pos

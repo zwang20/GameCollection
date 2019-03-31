@@ -47,17 +47,6 @@ def refresh():
     pygame.display.set_icon(images['game_icon'])
     pygame.mouse.set_visible(True)
 
-def launch(name):
-    try:
-        __import__(name)
-    except KeyboardInterrupt:
-        pass
-    try:
-        del name
-    except NameError:
-        pass
-    refresh()
-
 if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
     import crazy_spin_pvc
     import crazy_spin_pvp

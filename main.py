@@ -21,13 +21,13 @@ def main_menu():
         # This should be the last thing in the loop
 
 if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
-    import crazy_spin_pvc
-    import crazy_spin_pvp
-    import information
-    import simple_shooter
-    import chaos
-    import craft_battle
-    import snake
+    import games.crazy_spin_pvc
+    import games.crazy_spin_pvp
+    import games.information
+    import games.simple_shooter
+    import games.chaos
+    import games.craft_battle
+    import games.snake
 
 main_menu()
 

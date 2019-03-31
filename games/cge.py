@@ -157,7 +157,7 @@ def refresh():
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 60, 500, 50), 'Simple Shooter', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.simple_shooter")')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 60, 500, 50), 'Chaos', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.chaos")')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 0, 500, 50), 'Craft Battle', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.craft_battle")')
-    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 0, 500, 50), 'Snake', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.snake")')
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 0, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.snake")')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 60, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 60, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 120, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')

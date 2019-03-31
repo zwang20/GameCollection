@@ -1,0 +1,1 @@
+to add new games to games collection remember to import the game in the if False statement or else it will not work.

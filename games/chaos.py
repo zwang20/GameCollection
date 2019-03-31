@@ -1,5 +1,5 @@
-from cge import *
-from sge import *
+from games.cge import *
+from games.sge import *
 
 # init pygame
 pygame.init()

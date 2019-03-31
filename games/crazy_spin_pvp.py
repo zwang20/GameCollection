@@ -1,4 +1,4 @@
-from cge import *
+from games.cge import *
 
 pygame.display.set_caption("Crazy Spin Pvp")
 

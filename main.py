@@ -1,4 +1,4 @@
-from cge import *
+from games.cge import *
 
 def main_menu():
 

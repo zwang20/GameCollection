@@ -12,7 +12,25 @@ class Cell(GameObj):
     HEIGHT = 10
 
     def __init__(self, x, y):
-        pass
+        self.x = x
+        self.y = y
+        self.status = 0 # 0 = nothing, 1 = snake, 2 = food
+        self.image = pygame.Surface(WIDTH, HEIGHT)
+        self.image.fill(WHITE)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (self.x, self.y)
+        Cell.family.add(self)
+
+    def change_status(self, new_status):
+        self.status = new_status
+
+    def update(self):
+        if self.status == 0:
+            self.image.fill(WHITE)
+        if self.status == 1:
+            self.image.fill(BLACK)
+        if self.status == 2:
+            self.image.fill(RED)
 
 
 def main():

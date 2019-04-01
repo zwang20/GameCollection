@@ -4,6 +4,7 @@ import random
 import sys
 import math
 import time
+import numpy
 
 print('Complex Game Engine by Michael Wang Imported')
 

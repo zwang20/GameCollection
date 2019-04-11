@@ -31,6 +31,7 @@ if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
     import games.more
     import games.minesweeper
     import games.tetris
+    import games.crazy_spin_2
 
 main_menu()
 

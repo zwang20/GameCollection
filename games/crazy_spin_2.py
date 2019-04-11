@@ -1,9 +1,6 @@
-# imports
-import pygame
-import sys
-import os
+from games.cge import *
 
-pygame.init()
+pygame.display.set_caption("Crazy Spin PvC")
 
 # colours
 BLACK = (0, 0, 0)

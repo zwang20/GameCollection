@@ -2,23 +2,6 @@ from games.cge import *
 
 pygame.display.set_caption("Crazy Spin PvC")
 
-# colours
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255); GREY = (128, 128, 128)
-RED = (255, 0, 0); DARK_READ = (128, 0, 0)
-GREEN = (0, 255, 0); DARK_GREEN = (0, 128, 0)
-BLUE = (0, 0, 255); DARK_BLUE = (0, 0, 128)
-CYAN = (0, 255, 255); DARK_CYAN = (0, 128, 128)
-MAGENTA = (255, 0, 255); DARK_MAGENTA = (128, 0, 128)
-YELLOW = (255, 255, 0); DARK_YELLOW = (128, 128, 0)
-
-
-# screen
-WIDTH = 1200
-HEIGHT = 600
-display = pygame.display.set_mode((WIDTH, HEIGHT))
-
-
 # name the window
 pygame.display.set_caption("Crazy Spin 2")
 
@@ -162,7 +145,7 @@ def game():
     PlayerPad()
     EnemyPad()
     while True:
-        display.fill(BLACK)
+        DISPLAY.fill(BLACK)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_q] and (keys[pygame.K_LMETA] or keys[pygame.K_RMETA]) or pygame.event.peek(pygame.QUIT):  # Quit
             pygame.quit()
@@ -177,7 +160,7 @@ def game():
             if keys[pygame.K_DOWN]:
                 EnemyPad.family.sprite.move(5)
 
-        GameObj.family.draw(display)
+        GameObj.family.draw(DISPLAY)
         GameObj.family.update()
 
         pygame.display.update()

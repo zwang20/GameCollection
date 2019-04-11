@@ -168,7 +168,7 @@ def refresh():
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 180, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 180, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 240, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'useless_func()')
-    Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 240, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, '')
+    Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 240, 500, 50), 'More', SMALL_FONT, BLUE, DARK_BLUE, BLACK, 'launch("games.more")')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 + 300, 500, 50), 'Information', SMALL_FONT, YELLOW, DARK_YELLOW, BLACK, 'launch("games.information")')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 + 300, 500, 50), 'Quit', SMALL_FONT, RED, DARK_RED, BLACK, 'sys.exit()')
     text = SMALL_FONT.render(str('Version 1.2.5'), True, BLACK)

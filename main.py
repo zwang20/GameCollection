@@ -28,6 +28,9 @@ if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
     import games.chaos
     import games.craft_battle
     import games.snake
+    import games.more
+    import games.minesweeper
+    import games.tetris
 
 main_menu()
 

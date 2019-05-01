@@ -1,7 +1,5 @@
 from games.cge import *
 
-pygame.display.set_caption("Crazy Spin PvC")
-
 # name the window
 pygame.display.set_caption("Crazy Spin 2")
 

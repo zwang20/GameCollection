@@ -36,5 +36,3 @@ if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
 main_menu()
 
 sys.exit()
-
-# Minor changes 

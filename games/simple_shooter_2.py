@@ -35,6 +35,11 @@ class Player:
 
 
 def menu():
+
+    # Set caption to ss2
+    pygame.display.set_caption('Simple Shooter')
+
+    
     # ss2 menu
     while True:
         DISPLAY.fill(GREY)

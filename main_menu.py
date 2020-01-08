@@ -39,7 +39,7 @@ def main_menu():
 
     # version Information
     # very imortant
-    text = SMALL_FONT.render(str('Version 1.2.6'), True, BLACK)
+    text = SMALL_FONT.render(str('Version 1.3.0 Alpha'), True, BLACK)
     DISPLAY.blit(text, (0, HEIGHT - 10 - text.get_height()/2))
 
     # set caption of window

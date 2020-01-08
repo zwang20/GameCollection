@@ -4,4 +4,4 @@ def launch(program):
         __import__(program)
         del program
     except NameError:
-        print('Program '+game+' failed to import')
+        print('Program '+program+' failed to import')

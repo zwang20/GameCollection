@@ -5,6 +5,7 @@ import sys
 import math
 import time
 import numpy
+from engine.launch import launch
 
 print('Complex Game Engine by Michael Wang Imported')
 
@@ -148,7 +149,7 @@ def launch(name):
         del name
     except NameError:
         pass
-    refresh()
+    main_menu
 
 
 # refresh() moved to main_menu

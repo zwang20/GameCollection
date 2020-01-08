@@ -10,3 +10,5 @@ GREEN = (0, 128, 0)
 DARK_BLUE = (0, 102, 255)
 GREY = (40, 40, 50)
 BLUE = (0, 0, 128)
+
+player_img = images['ss2_ship1blue']

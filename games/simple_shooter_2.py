@@ -24,6 +24,10 @@ player_img = images['ss2_ship1blue']
 pygame.mixer.music.stop()
 
 
+# Set caption to ss2
+pygame.display.set_caption('Simple Shooter 2')
+
+
 # player class
 class Player:
 
@@ -36,10 +40,6 @@ class Player:
 
 def menu():
 
-    # Set caption to ss2
-    pygame.display.set_caption('Simple Shooter')
-
-    
     # ss2 menu
     while True:
         DISPLAY.fill(GREY)

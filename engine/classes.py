@@ -1,5 +1,6 @@
 import pygame
 import random
+import sys
 from engine.launch import launch
 
 def get_input():

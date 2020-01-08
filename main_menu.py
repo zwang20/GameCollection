@@ -22,7 +22,7 @@ def main_menu():
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 120, 500, 50), 'Crazy Spin PvC', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.crazy_spin_pvc")')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 120, 500, 50), 'Crazy Spin PvP', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.crazy_spin_pvp")')
     # SS --> SS2
-    Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 60, 500, 50), 'Simple Shooter 2', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.simple_shooter_2")')
+    Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 60, 500, 50), 'Simple Shooter 2', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.simple_shooter_2.main")')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 60, 500, 50), 'Chaos', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.chaos")')
     Button((WIDTH/2 - 250 - 255, HEIGHT/2 - 0, 500, 50), 'Craft Battle', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.craft_battle")')
     Button((WIDTH/2 - 250 + 255, HEIGHT/2 - 0, 500, 50), '', SMALL_FONT, GREEN, DARK_GREEN, BLACK, 'launch("games.snake")')

@@ -123,13 +123,8 @@ class Button(GameObj):
     def update(self):
         if self.x + self.width > mouse_pos[0] > self.x and self.y + self.height > mouse_pos[1] > self.y:
             self.image.fill(self.focus_colour)
-            if pygame.event.peek(pygame.MOUSEBUTTONDOWN):
-            # pygame.event.get()
-            # if pygame.mouse.get_pressed()[0]:
-                pygame.event.clear(pygame.MOUSEBUTTONDOWN)
-                pygame.event.clear()
+            if mouse[0]:
                 exec(self.action)
-                # self.action()
         else:
             self.image.fill(self.unfocus_colour)
         if random.randint(0, 99) == 69:

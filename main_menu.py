@@ -15,6 +15,7 @@ def main_menu():
     text = HUGE_FONT.render(str('Games Collection'), True, BLACK)
     DISPLAY.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/5 - text.get_height()/2))
 
+
     # create buttons
     # TODO: add scroll wheel
     # TODO: create smarter way

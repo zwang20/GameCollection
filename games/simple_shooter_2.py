@@ -1,5 +1,7 @@
 from games.cge import *
-from games.sge import *
+# TODO: decrease reliance on sge
+# from games.sge import *
+
 
 
 # load colours

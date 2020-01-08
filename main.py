@@ -1,26 +1,15 @@
+# initialise complex game engine
 from games.cge import *
 
-def main_menu():
 
-    refresh()
+# import main menu
+from main_menu import main_menu
 
-    while True:
-        # print(pygame.event.get())
-        clock.tick(60)
 
-        if (pygame.key.get_pressed()[pygame.K_q] and (pygame.key.get_pressed()[pygame.K_LMETA] or pygame.key.get_pressed()[pygame.K_RMETA])):
-            pygame.quit()
-            sys.exit()
-
-        # print(pygame.event.peek(pygame.MOUSEBUTTONDOWN))
-
-        get_input()
-        GameObj.family.update() # update sprites
-        GameObj.family.draw(DISPLAY) # draw sprites
-        pygame.display.update()  # update
-        # This should be the last thing in the loop
-
-if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
+# tell the compiler to include packages
+# the compiler is too smart for its own good
+# DO NOT DELETE THIS UNLESS YOU ARE STUPID
+if False:
     import games.crazy_spin_pvc
     import games.crazy_spin_pvp
     import games.information
@@ -33,6 +22,10 @@ if False:  # DO NOT DELETE THIS UNLESS YOU ARE STUPID
     import games.tetris
     import games.crazy_spin_2
 
+
+# start the main menu
 main_menu()
 
+
+# exit the program if the main menu stops
 sys.exit()

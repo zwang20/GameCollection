@@ -1,12 +1,39 @@
-from games.cge import *
+'''
+MiniSnake.py
+
+A game of snake in one .py file
+
+
+This program by Daniel Westbrook
+website: www.pixelatedawesome.com
+email: thepixelator72@gmail.com
+	   (or whatever email I list on my site, if I stop using that one)
+
+Legal shit:
+	Copyright (C) 2008 Daniel Westbrook
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
 import pygame
 from pygame.locals import *
 import random
 
-# Constants
+# ---------- constants ---------- #
 SCREENSIZE = (800, 600)
 SCREENRECT = pygame.Rect(0, 0, SCREENSIZE[0], SCREENSIZE[1])
-CAPTION = 'Snake'
+CAPTION = 'MiniSnake'
+FPS = 40
 
 START_TILE = (20, 20)
 START_SEGMENTS = 7
@@ -56,20 +83,20 @@ class snake_segment(pygame.sprite.Sprite):
 		self.image.fill(COLORKEY_COLOR)
 		self.image.set_colorkey(COLORKEY_COLOR)
 		pygame.draw.circle(self.image, color, TILE_RECT.center, radius)
-
+		
 		self.tilepos = tilepos
-
+		
 		self.rect = self.image.get_rect()
 		self.rect.topleft = (tilepos[0] * TILE_SIZE[0], tilepos[1] * TILE_SIZE[1])
-
+		
 		self.segment_groups = segment_groups
 		for group in segment_groups:
 			group.add(self)
-
+		
 		self.behind_segment = None
-
+		
 		self.movedir = 'left'
-
+	
 	def add_segment(self):
 		seg = self
 		while True:
@@ -89,10 +116,10 @@ class snake_segment(pygame.sprite.Sprite):
 				break
 			else:
 				seg = seg.behind_segment
-
+	
 	def update(self):
 		pass
-
+	
 	def move(self):
 		self.tilepos = (self.tilepos[0] + MOVE_VECTORS[self.movedir][0], self.tilepos[1] + MOVE_VECTORS[self.movedir][1])
 		self.rect.move_ip(MOVE_VECTORS_PIXELS[self.movedir])
@@ -105,7 +132,7 @@ class snake_head(snake_segment):
 		snake_segment.__init__(self, tilepos, segment_groups, color = SNAKE_HEAD_COLOR, radius = SNAKE_HEAD_RADIUS)
 		self.movedir = movedir
 		self.movecount = 0
-
+	
 	def update(self):
 		self.movecount += MOVE_RATE
 		if self.movecount > MOVE_THRESHOLD:
@@ -119,7 +146,7 @@ class food(pygame.sprite.Sprite):
 		self.image.fill(COLORKEY_COLOR)
 		self.image.set_colorkey(COLORKEY_COLOR)
 		pygame.draw.circle(self.image, FOOD_COLOR, TILE_RECT.center, FOOD_RADIUS)
-
+		
 		self.rect = self.image.get_rect()
 		while True:
 			self.rect.topleft = (random.randint(0, SCREENTILES[0]) * TILE_SIZE[0], random.randint(0, SCREENTILES[1]) * TILE_SIZE[1])
@@ -133,7 +160,7 @@ class block(pygame.sprite.Sprite):
 		pygame.sprite.Sprite.__init__(self)
 		self.image = self.image = pygame.Surface(TILE_SIZE).convert()
 		self.image.fill(BLOCK_COLOR)
-
+		
 		self.rect = self.image.get_rect()
 		while True:
 			self.rect.topleft = (random.randint(0, SCREENTILES[0]) * TILE_SIZE[0], random.randint(0, SCREENTILES[1]) * TILE_SIZE[1])
@@ -151,27 +178,27 @@ def main():
 	bg = pygame.Surface(SCREENSIZE).convert()
 	bg.fill(BACKGROUND_COLOR)
 	screen.blit(bg, (0, 0))
-
+	
 	snakegroup = pygame.sprite.Group()
 	snakeheadgroup = pygame.sprite.Group()
 	foodgroup = pygame.sprite.Group()
 	blockgroup = pygame.sprite.Group()
 	takenupgroup = pygame.sprite.Group()
 	all = pygame.sprite.RenderUpdates()
-
+	
 	snake = snake_head(START_TILE, 'right', [snakegroup, all, takenupgroup])
 	snakeheadgroup.add(snake)
 	for index in range(START_SEGMENTS):
 		snake.add_segment()
-
+	
 	currentfood = 'no food'
-
+	
 	block_frame = 0
-
+	
 	currentscore = 0
-
+	
 	pygame.display.flip()
-
+	
 	# mainloop
 	quit = False
 	clock = pygame.time.Clock()
@@ -199,19 +226,19 @@ def main():
 					raise RuntimeError, 'not expected'
 				if not currentmovedir == dontmove:
 					snake.movedir = tomove
-
+		
 		# clearing
 		all.clear(screen, bg)
-
+		
 		# updates
 		all.update()
-
+		
 		if currentfood == 'no food':
 			currentfood = food(takenupgroup)
 			foodgroup.add(currentfood)
 			takenupgroup.add(currentfood)
 			all.add(currentfood)
-
+		
 		pos = snake.rect.topleft
 		if pos[0] < 0:
 			quit = True
@@ -225,7 +252,7 @@ def main():
 		if pos[1] >= SCREENSIZE[1]:
 			quit = True
 			lose = True
-
+		
 		# collisions
 		# head -> tail
 		col = pygame.sprite.groupcollide(snakeheadgroup, snakegroup, False, False)
@@ -256,24 +283,24 @@ def main():
 			for collidedblock in col[head]:
 				quit = True
 				lose = True
-
+		
 		# score
 		d = screen.blit(bg, SCORE_POS, pygame.Rect(SCORE_POS, (50, 100)))
 		f = pygame.font.Font(None, 12)
 		scoreimage = f.render(SCORE_PREFIX + str(currentscore), True, SCORE_COLOR)
 		d2 = screen.blit(scoreimage, SCORE_POS)
-
+		
 		# drawing
 		dirty = all.draw(screen)
 		dirty.append(d)
 		dirty.append(d2)
-
+		
 		# updating
 		pygame.display.update(dirty)
-
+		
 		# waiting
 		clock.tick(FPS)
-
+	
 	# game over
 	if lose == True:
 		f = pygame.font.Font(None, 300)
@@ -285,4 +312,5 @@ def main():
 		pygame.time.wait(2000)
 
 
-main()
+if __name__ == "__main__":
+	main()

@@ -34,7 +34,7 @@ class Player:
 
 def menu():
     # ss2 menu
-    while true:
+    while True:
         DISPLAY.fill(GREY)
 
         # get input

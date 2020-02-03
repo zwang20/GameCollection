@@ -1,3 +1,5 @@
+from engine.main import *
+
 class Bullet:
     width = 2
     length = 20
